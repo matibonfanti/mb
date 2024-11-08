@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Your Name</h1>
+    <p>Brief description about you.</p>
+  </header>
+  <section>
+    <h2>About Me</h2>
+    <p>Your background, interests, or anything you want to include here.</p>
+  </section>
+  <section>
+    <h2>Links</h2>
+    <ul>
+      <li><a href="#">Link to something interesting</a></li>
+      <li><a href="#">Another link</a></li>
+    </ul>
+  </section>
+  <footer>
+    <p>&copy; <span id="year"></span> Your Name</p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
