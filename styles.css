@@ -1,51 +1,64 @@
+/* Basic styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Georgia", serif;
+  color: #333;
+  background-color: #fefefe;
   margin: 0;
-  padding: 0;
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
   line-height: 1.6;
 }
 
-header {
-  text-align: center;
-  padding: 2rem;
-}
-
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
 }
 
-p {
+.description {
   font-size: 1rem;
   color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.4;
 }
 
-section {
-  padding: 1rem 2rem;
+/* Experience Section */
+.experience h2, .writing h2 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-top: 1rem;
-}
-
-ul {
+.experience ul, .writing ul {
   list-style-type: none;
   padding: 0;
 }
 
-li {
-  margin: 0.5rem 0;
+.experience li, .writing li {
+  margin-bottom: 0.8rem;
 }
 
+.experience strong {
+  font-weight: bold;
+}
+
+/* Links */
 a {
-  text-decoration: none;
   color: #007acc;
+  text-decoration: none;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #f4f4f4;
+a:hover {
+  text-decoration: underline;
 }
+
+/* Footer */
+footer {
+  text-align: left;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
 
