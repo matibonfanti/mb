@@ -6,32 +6,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Read Recommendations</title>
+  <title>Things I Like</title>
   <link rel="stylesheet" href="styles.css">
 </head>
- <a href="index.html" class="back-home">← Back to Home</a>
-</head>
 <body>
-  
-    <h1>things i like</h1>
-    <p class="description">fiction, music, urbanism</p>
-    
-    <section>
-        <h2>borges</h2>
-        <p>
-            the best. my favourites: "The Garden of Forking Paths", "The Library of Babel", "The Lottery of Babylon", "Borges y yo", "Historia de la eternidad". 
+  <a href="index.html" class="back-home">← Back to Home</a>
 
-          For a fascinating explanation on how Borges' imagination anticipated the "Many Worlds Interpretation" of quantum mechanics see: <li><a href="https://our.oakland.edu/server/api/core/bitstreams/d5907479-0cb0-4611-831a-61dcbe3ef068/content/" target="_blank">The Graden of Forking Worlds</a> </li> by Alberto G. Rojo, physics PhD.
-
-          In his 1973 <li><a href="https://cqi.inf.usi.ch/qic/everett_phd.pdf" target="_blank">paper</a> </li>, Hugh Everett includes an epigraph from Jorge Luis Borges' short story "The Garden of Forking Paths", published 16 years before Everett first postulated the "Many Worlds Interpretation". 
-        </p>
+  <h1>Things I Like</h1>
+  <p class="description">Fiction, music, urbanism</p>
   
-    <footer>
-        <p>&copy; <span id="year"></span> Matias Bonfanti</p>
-    </footer>
+  <section>
+    <h2>Borges</h2>
+    <p>The best. My favourites:</p>
+    <ul>
+      <li>The Garden of Forking Paths</li>
+      <li>The Library of Babel</li>
+      <li>The Lottery of Babylon</li>
+      <li>Borges y yo</li>
+      <li>Historia de la eternidad</li>
+    </ul>
     
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <p>For a fascinating explanation on how Borges' imagination anticipated the "Many Worlds Interpretation" of quantum mechanics, see: 
+      <a href="https://our.oakland.edu/server/api/core/bitstreams/d5907479-0cb0-4611-831a-61dcbe3ef068/content/" target="_blank">The Garden of Forking Worlds</a> by Alberto G. Rojo, physics PhD.
+    </p>
+    
+    <p>In his 1973 <a href="https://cqi.inf.usi.ch/qic/everett_phd.pdf" target="_blank">paper</a>, Hugh Everett includes an epigraph from Jorge Luis Borges' short story "The Garden of Forking Paths," published 16 years before Everett first postulated the "Many Worlds Interpretation".</p>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Matias Bonfanti</p>
+  </footer>
+  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
