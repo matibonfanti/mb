@@ -24,22 +24,22 @@ h1 {
   line-height: 1.4;
 }
 
-/* Experience Section */
-.experience h2, .writing h2 {
+/* Sections */
+.writing h2, .contact h2 {
   font-size: 1.3rem;
   margin-top: 1.5rem;
 }
 
-.experience ul, .writing ul {
+.writing ul, .contact ul {
   list-style-type: none;
   padding: 0;
 }
 
-.experience li, .writing li {
+.writing li, .contact li {
   margin-bottom: 0.8rem;
 }
 
-.experience strong {
+.writing strong {
   font-weight: bold;
 }
 
@@ -60,5 +60,3 @@ footer {
   font-size: 0.8rem;
   color: #888;
 }
-
-
