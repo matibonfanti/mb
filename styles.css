@@ -17,6 +17,15 @@ h1 {
   margin: 0;
 }
 
+h3 {
+  font-size: 1rem; /* same size as .description */
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 1rem;
+  color: #333;
+}
+
+
 .description {
   font-size: 1rem;
   color: #555;
