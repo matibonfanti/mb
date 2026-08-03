@@ -182,6 +182,33 @@ ul.entries li:last-child { border-bottom: none; }
 
 .empty p:last-child { margin-bottom: 0; }
 
+/* ---------- tables ---------- */
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+th, td {
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  color: var(--fg);
+}
+
 /* ---------- links ---------- */
 
 a {

@@ -47,17 +47,92 @@
   </nav>
 
   <article>
-    <p>
-      A note arguing that the binding constraint on AI's commercial usefulness is not
-      raw model intelligence but effective context: the transformer's attention
-      mechanism scales quadratically with sequence length and stores every token at
-      full resolution, so it cannot compress the way a human reader does. More chips
-      and more high-bandwidth memory do not remove this constraint, and agents and
-      retrieval work around it rather than solving it. The piece sets out what that
-      implies for the semiconductor memory trade under three architecture scenarios.
-    </p>
+    <h2>Introduction</h2>
 
-    <!-- BODY GOES HERE — see chat before publishing the full text. -->
+    <p>AI today seems extremely smart at times, and surprisingly useless at others. It can beat 99.9% of humans at math, coding, and science on specific tasks and questions. But for how intelligent it is, it can do a remarkably small amount of genuinely useful work. It is, in many ways, a genie trapped in a bottle. Why is this? And is it changing?</p>
+
+    <p>A key difference between a very smart LLM and a very average human employee is not raw intelligence; it is the ability to discern and remember key details. Each time you start a conversation with Claude, it is like talking to an extraordinarily smart newborn: it has an enormous amount of general knowledge, but it is not aware of who you are, what you do, what you are working on, or what broader goal you are trying to achieve with the prompt. It starts every interaction from zero. A comparatively average human employee, by contrast, learns on the job. They gather information that is implicit in discussions, remember how things are done after a few months, and gradually develop the ability to separate what matters from what does not. The human will not remember everything, but they remember better, and more usefully, than any frontier LLM.</p>
+
+    <p>The ability of LLMs to ingest and usefully retain information has generally stalled even as models have gotten dramatically smarter. Or rather, it has improved marginally, but it has not scaled the way that raw model intelligence has scaled with compute and training data. We have models that are qualitatively more capable each year, but their effective working memory has barely moved. The technical term for this problem is a model’s context window: the amount of information it can hold and reason over at any one time.</p>
+
+    <p>The reason it has not gotten meaningfully better is structural to the transformer architecture, the foundational design of every LLM. This means that the problem is not easily solvable, and that more data centres, more chips, or more high-bandwidth memory will not make it significantly better. Many workarounds are being tried, most prominently agents and orchestration, but these are attempts to work around the constraint, not to remove it. I argue that for AI to become genuinely useful in commercially valuable applications at scale, there would have to be a step-change breakthrough in effective context. This is more likely to come from an algorithmic innovation (one that reduces the physical memory required per unit of effective context) than from scaling the current architecture or improving how we orchestrate agents. This has direct implications for the semiconductor memory trade, which is currently pricing in sustained HBM demand growth driven by the assumption that the current architecture will persist.</p>
+
+    <h2>The Cause of the Problem</h2>
+
+    <p>To understand why context is the bottleneck, and why more hardware does not solve it, it helps to understand what a transformer actually is and how it processes information.</p>
+
+    <h3>What is a transformer?</h3>
+
+    <p>A transformer is the architecture behind every major language model today. Before transformers, language models processed words one at a time, in order, like reading a sentence left to right. This was slow, and it meant the model had a hard time connecting words that were far apart in a paragraph.</p>
+
+    <p>Transformers changed this by introducing a mechanism that lets the model look at all the words at once and decide which ones are relevant to each other. This mechanism is called self-attention, and it is both the reason transformers are so powerful and the reason they have a context problem.</p>
+
+    <h3>How self-attention works</h3>
+
+    <p>For every word the model processes, it asks: which other words in this input are relevant to understanding this one It does this by computing a score between every pair of words. In a sentence with 10 words, this means computing 100 scores (10 x 10). In a document with 1,000 words, it computes 1,000,000 scores. In a 200,000-token context window, computes 40 billion scores. This is the quadratic scaling problem. The cost of attention grows with the square of the context length. This is a mathematical property of the architecture and cannot be optimised. Self-attention also requires the model to store intermediate values for every token it has processed. These are called key-value pairs (or the KV cache). Every token generates a key (roughly: what information do I contain?) and a value (roughly: what should I contribute to the answer?). These are stored in memory so that future tokens can look back and reference them. In a frontier model with 80 to 120 layers, each layer maintains its own set of key-value pairs for every token. For a 200,000-token input, this KV cache alone can consume 50 to 100 gigabytes of HBM memory on the chip. This makes them fundamentally expensive to run on long inputs, and it is why context windows have not scaled the way model intelligence has.</p>
+
+    <h3>Why this constraint is structural</h3>
+
+    <p>There is no way to compute full self-attention over a long sequence without paying the quadratic cost. Some computation optimisation has been achieved by, for example, being smarter about data movement within the GPU, memory placement within the GPU and Nvidia improving GPUs in general, but this isn’t significant and cannot change the fundamental scaling relationship.</p>
+
+    <p>In 2022, DeepMind published the Chinchilla scaling laws, which showed a predictable log-linear relationship between training compute and model capability: spend 10 times more on training and the model gets meaningfully smarter. These scaling laws are “intact” and gave the industry confidence to invest hundreds of billions in data centres and chips, because the return on investment was quantifiable. No equivalent relationship exists for context. Despite enormous effort, announced context of frontier models has stalled at 200,000 to 1 million tokens for two years now, and benchmarks consistently show that effective utilisation is typically 30 to 60 percent of the advertised maximum. This is not a memory problem in the hardware sense; the information is physically present in the KV cache. It is an algorithmic (attention allocation) problem: the model’s mechanism for deciding what is relevant simply does not work well when spread across very long sequences.</p>
+
+    <h3>Transformers do not compress: more hardware doesn’t help</h3>
+
+    <p>A human reading a 300-page document doesn’t remember every word, they build a mental model and remember the key ideas, the things that surprised them, compressing content and reducing “memory” needs. Transformers do not do this, they store every token at full resolution. This is enormously wasteful, and it is a direct consequence of the attention mechanism treating all positions as equally worthy of storage. This is why even if you could provide unlimited memory to a transformer, it would still struggle with effective recall over very long inputs. The architecture has no mechanism for building the kind of compressed, prioritised representation of information that would make long-context reasoning reliable.</p>
+
+    <h2>The Industry’s Response</h2>
+
+    <p>The frontier model companies (Anthropic, OpenAI, and Google) are responding to the context bottleneck in two ways. The first is to accept the constraint and work around it: improve orchestration, build smarter agents, and squeeze more useful output from a model that cannot hold very much in its head at once. The second is to invest in research on fundamentally different architectures that might not have the constraint at all.</p>
+
+    <p>On the workaround side, the industry has made impressive but insubstantial progress. Chatbots now use a "memory" feature where key facts about the user and past conversations are summarised and passed as context to each new instance. Agent orchestrators like Claude Code and Codex break complex tasks into sub-tasks, giving each step only the context it needs. These products are genuinely impressive, and they are driving meaningful adoption. But as a daily user of these tools, the limitations are immediately obvious. Context fills up very fast and when it does, the model is instructed to "compact" (to write a short summary of the conversation so far) and is then handed to a fresh instance of the model that has no memory of what came before. This is, to be frank, a terrible experience. It works well enough for simple, well-scoped tasks but it does not work for the kind of sustained, detail-sensitive work that would make AI economically transformative.</p>
+
+    <p>Retrieval-augmented generation (RAG) is the other major workaround. Instead of giving the model everything, a retrieval system searches a database for the most relevant documents and feeds only those into the context window.</p>
+
+    <p>The fundamental issue with all of these approaches is that they are compensating for a model that cannot hold enough information in mind at once.</p>
+
+    <p>The fact that transformers are so spectacularly inefficient in how they manage context suggests to be that there is enormous room for improvement. Despite the enormous commercial pressure to ship products and scale inference, frontier labs still allocate roughly half of their available compute to research.</p>
+
+    <h2>Scenarios</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Description</th>
+            <th>HBM Demand Impact</th>
+            <th>Probability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Baseline</td>
+            <td>Transformers remain dominant. No alternative architecture matches transformer quality at frontier scale; context problem remains a constraint. Improvements to context come incrementally through better engineering and optimisation.</td>
+            <td>Current consensus demand trajectory holds, or increases. High HBM and DRAM prices sustained.</td>
+            <td>35-50%</td>
+          </tr>
+          <tr>
+            <td>Hybrid Adoption</td>
+            <td>Some kind of hybrid architecture that improves context length is developed and deployed by at least 1 frontier model provider.</td>
+            <td>HBM demand grows at consensus or slightly below. Prices might decrease in the medium term.</td>
+            <td>20-45%</td>
+          </tr>
+          <tr>
+            <td>Regime Change</td>
+            <td>A fundamentally new architecture matches transformer quality at scale and is adopted by frontier providers.</td>
+            <td>HBM demand grows below current consensus.</td>
+            <td>5-15%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Hyperscalers have made an enormous bet on LLMs and they are on the hook for hundreds of billions in capital expenditure. They desperately need a predictable path from that investment to revenue. Today, the market believes this path is agents and orchestration. This is why Anthropic is the market favourite among frontier labs: their product strategy is built around making context-limited models as productive as possible. But the premise of this bet is that you can scale the current paradigm by adding more memory, more compute, and more infrastructure. If the current paradigm requires effectively infinite memory to deliver on the promise of economically transformative AI, then the investment case depends on memory supply growing indefinitely at premium prices. This is what the market is pricing into memory names.</p>
+
+    <p>I am not bearish on memory names, even in the hybrid adoption scenario, the amount of genuinely useful work that AI could do would increase so dramatically that total demand for intelligence, and therefore for hardware, would likely grow.</p>
+
+    <p>But what I am arguing is this: without a significant algorithmic breakthrough in how models manage context and memory, we will not be able to simply scale data centres and capital expenditure and expect the return on investment or the economic disruption that is currently anticipated from AI. The context bottleneck is a huge binding constraint on AI's commercial utility, and therefore on the entire investment thesis for the AI hardware supply chain (again, IF no algorithmic breakthrough).</p>
   </article>
 
   <footer>

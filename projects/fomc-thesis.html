@@ -57,7 +57,98 @@
       What if you could train a model to quantify emotional expressions of central bankers in announcements and see how these variables affect markets? Can subtle vocal shifts signal underlying sentiment and influence asset prices?
     </p>
 
-    <!-- METHODOLOGY SECTION GOES HERE -->
+    <h2>What I built</h2>
+
+    <p>
+      Most of the research on central bank communication reads the transcript. It counts
+      words, tracks how often "uncertainty" appears, and models the topics a statement
+      covers. That work is good, but it can only ever capture <em>what</em> was said. I
+      wanted the part that never makes it into the transcript: the delivery.
+    </p>
+
+    <p>
+      So the project became an engineering problem before it became an economics one. I
+      needed a dataset that didn't exist — every sentence Jerome Powell has spoken in a
+      press conference, labelled with the emotion he delivered it with, and lined up
+      against what markets did in the seconds that followed.
+    </p>
+
+    <p>
+      I worked from sixteen FOMC press conferences between May 2019 and May 2025,
+      pulled from the Federal Reserve's own YouTube channel, and stripped the audio
+      from each one. The first real problem is that a press conference is not one
+      person talking. It's the Chair, then a journalist asking a question, then the
+      Chair again, plus shuffling, camera noise and crosstalk. Before measuring
+      anything I had to work out who was speaking when, and keep only the Chair. That's
+      a process called speaker diarization, and it produces a timeline of the whole
+      conference marked up by speaker.
+    </p>
+
+    <p>
+      With the Chair's speech isolated, I cut each conference into clips of roughly ten
+      to thirty-five seconds, splitting on natural pauses so a clip never chops a
+      sentence in half. Every clip carries a precise start and end timestamp, converted
+      into a single time zone, because the whole study depends on knowing exactly when
+      each sentence was spoken.
+    </p>
+
+    <h2>Reading emotion from video and audio together</h2>
+
+    <p>
+      The interesting part is what reads the clips. Older emotion recognition models
+      handle vision and audio separately — one model looks at the face, another listens
+      to the voice, and the two are stitched together afterwards. That works badly for
+      someone like a central banker, whose whole job is to give away as little as
+      possible, and where the signal is in the combination: a slight pause alongside a
+      tightened jaw means something that neither channel means alone.
+    </p>
+
+    <p>
+      I used <a href="https://github.com/HumanMLLM/R1-Omni" target="_blank" rel="noopener">R1-Omni</a>,
+      a model built on top of DeepSeek-R1 that is multimodal by design. It watches the
+      video and listens to the audio jointly rather than in two passes. Two things made
+      it the right choice. First, it isn't restricted to a fixed list of emotions — it
+      describes what it sees in open language instead of forcing everything into five
+      preset boxes. Second, and more useful for research, it explains itself: for every
+      clip it produces a written rationale for why it reached its conclusion before
+      giving the label. That means a judgement about Powell's demeanour isn't a number
+      appearing out of a black box; you can read the reasoning and disagree with it.
+    </p>
+
+    <p>
+      Running this was not trivial. Each clip goes through the model as video and audio
+      together, on GPU instances, with the intermediate stages held in cloud storage so
+      a failed run doesn't mean starting over. The pipeline is built in numbered
+      stages — download, diarize, segment, infer, align — and each one can be resumed
+      independently.
+    </p>
+
+    <h2>Lining it up against markets</h2>
+
+    <p>
+      The last step joins the clips to market data: one-second tick data on S&amp;P 500
+      futures and two-year Treasury futures, so that each clip could be matched to what
+      those two instruments did immediately afterwards. Equities and the front end of
+      the curve react to press conferences in different ways, and having both meant I
+      could see whether anything showed up in one and not the other.
+    </p>
+
+    <p>
+      That produced the dataset the thesis actually runs on: several thousand clips,
+      each with an emotion label, the model's reasoning, a timestamp, and the price
+      path around it. From there the statistical work is fairly conventional — compare
+      what happens after emotionally non-neutral clips against neutral ones, control
+      for what prices were already doing and for the actual policy surprise, and repeat
+      across a range of time horizons.
+    </p>
+
+    <p>
+      One finding is worth stating because it shapes everything else: Powell is
+      overwhelmingly neutral. Across sixteen conferences the model classifies the vast
+      majority of clips as flat affect, with only a scattering of anything else. That is
+      presumably the point — a Fed Chair is trained to give nothing away — but it means
+      the interesting moments are rare, and rare events are hard to measure precisely.
+    </p>
   </article>
 
   <footer>
