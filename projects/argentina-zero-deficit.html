@@ -9,7 +9,7 @@
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="The lie of the Milei budget surplus">
-  <meta property="og:description" content="Argentina's headline surplus is a cash-basis number. The interest behind it capitalises inside LECAPs instead of being paid.">
+  <meta property="og:description" content="Argentina reports headline surplus as a cash-basis number. The quasi-fiscal deficit inherited from the central bank was transferred to the Treasury but hidden behind capitalised bonds.">
   <meta property="og:url" content="https://matibonfanti.github.io/mb/projects/argentina-zero-deficit.html">
 
   <link rel="canonical" href="https://matibonfanti.github.io/mb/projects/argentina-zero-deficit.html">
@@ -137,10 +137,38 @@
       <figcaption>35.1% of GDP as reported in June 2026, against 23.1% excluding cumulative capitalisation. The gap measures how much of the debt stock accumulated outside both the auction process and the budget.</figcaption>
     </figure>
 
-    <h2>Sources</h2>
+    <h2>Sources, and where the number is hidden</h2>
 
     <p>
-      Monthly capitalised interest and the peso debt stock are extracted from 28 consecutive Oficina de Presupuesto del Congreso "Operaciones de deuda pública" reports covering March 2024 to June 2026. Fiscal aggregates, nominal GDP and CPI come from the datos.gob.ar time-series API. The accrual result is the reported cash result less capitalised interest for the same month. The reconstruction reproduces every independently published control total.
+      The accrual figure is not published anywhere. It is not that it is buried in an annex — it does not exist in the budget system at all. The OPC states in each monthly execution report that <em>"los registros de E.Sidif y Presupuesto Abierto no incluyen intereses de títulos públicos capitalizables"</em>: the two systems that record budget execution simply do not carry it. No amount of querying MECON's fiscal datasets will surface it, because it was never posted there.
+    </p>
+
+    <p>
+      Where it does appear is the debt records, which are a different reporting chain entirely — the Secretaría de Finanzas' register of public debt operations rather than the fiscal accounts. It surfaces there only because the monthly change in peso debt capital has to be reconciled, and that identity is
+    </p>
+
+    <p>
+      <strong>Δ debt = net capital operations + valuation adjustments (CER and FX) + capitalisation of interest</strong>
+    </p>
+
+    <p>
+      Publishing that reconciliation is what forces the capitalisation term to be stated explicitly. It sits around page six of the OPC's "Operaciones de deuda pública" — not in the better-known "Análisis de la ejecución presupuestaria", which only footnotes the exclusion.
+    </p>
+
+    <p>
+      So the reconstruction is a matter of reading that line out of 28 consecutive monthly PDFs covering March 2024 to June 2026, and rebuilding the series by hand. Fiscal aggregates, nominal GDP and CPI come from the datos.gob.ar time-series API. The accrual result is then simply the reported cash result less capitalised interest for the same month.
+    </p>
+
+    <p>
+      Four things will silently corrupt this if missed. Many of the OPC PDFs are image-based — every glyph a separate embedded image — so text extraction returns almost nothing and OCR is required, and which months need it varies. The units changed in January 2026 from <em>millones</em> to <em>MM</em> (miles de millones), a 1,000× error on every month afterwards if the unit word is assumed rather than parsed. Spanish number format uses "." for thousands and "," for decimals, so naive parsing of $10.916.227 yields 10.92. And the set of instruments included drifts across years, so the series is not constant-perimeter unless it is cut deliberately.
+    </p>
+
+    <p>
+      Two checks. The identity closes tightly month by month — for June 2026, net capital cancellations of −$8,168bn, valuation adjustments of +$5,192bn and capitalisation of +$3,296bn sum to +$320bn against an observed stock change of +$319bn. And the reconstruction reproduces every independently published control total: 14.06tn against 14.1tn for 2024, 75.80tn against 75.8tn for 2025, 10.92tn for August 2025 alone, and −74.35tn against −74.3tn for the 2025 accrual result.
+    </p>
+
+    <p>
+      One denominator point matters for anyone replicating this: the INDEC quarterly GDP series is expressed at annual rates, not as quarterly flows, so rolling-year nominal GDP is the four-quarter <em>mean</em>, not the sum. Summing gives a figure roughly four times too large and every ratio four times too small.
     </p>
   </article>
 
