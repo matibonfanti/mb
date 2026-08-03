@@ -70,21 +70,21 @@
     </p>
 
     <p>
-      Older emotion recognition models handled vision and audio separately, one model looks at the face, another listens to the voice, and the two are stitched together afterwards. That works badly in this cases.
+      Older emotion recognition models handled vision and audio separately, one model looks at the face, another listens to the voice, and the two are stitched together afterwards. That works badly in this case.
     </p>
 
     <p>
-      I used <a href="https://github.com/HumanMLLM/R1-Omni" target="_blank" rel="noopener">R1-Omni</a>, a multi-modal emotion recognition model built on top of DeepSeek-R1. It watches the video and listens to the audio jointly rather than separately. Because it is LLM-based, it isn't restricted to a fixed list of emotions, it simply describes what it sees in open language. R1-Omni also explains itself with a thinking trace: for every clip it produces a written rationale. And its open weights so I can run inference myself.
+      I used <a href="https://github.com/HumanMLLM/R1-Omni" target="_blank" rel="noopener">R1-Omni</a>, a multi-modal emotion recognition model built on top of DeepSeek-R1. It watches the video and listens to the audio jointly rather than separately. Because it is LLM-based, it isn't restricted to a fixed list of emotions, it simply describes what it sees in open language. R1-Omni also explains itself with a thinking trace: for every clip it produces a written rationale. And it's open-weights, so I can run inference myself.
     </p>
 
     <p>
-      Running inference on this this was not trivial. I had to rent an AWS Nvidia GPU instance powerful enough and pass each clip sequentially, with video and intermediate stages in cloud storage.
+      Running inference on this was not trivial. I had to rent an AWS Nvidia GPU instance powerful enough and pass each clip sequentially, with video and intermediate stages in cloud storage.
     </p>
 
     <h2>Lining it up against markets</h2>
 
     <p>
-      The last step consists of joining the clips to market data. I got one-second tick data on S&amp;P 500 futures and two-year Treasury futures and tried to match each clip's real-time the market.
+      The last step consists of joining the clips to market data. I got one-second tick data on S&amp;P 500 futures and two-year Treasury futures and tried to match each clip's real time to the market.
     </p>
 
     <p>
