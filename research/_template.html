@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE — do not link to this file directly.
+
+  To publish a new note:
+    1. cp _template.html my-note-slug.html
+    2. Replace every NOTE_TITLE, NOTE_SUMMARY, NOTE_DATE and NOTE_SLUG below.
+    3. Write the body inside <article>.
+    4. Add a matching <li> to index.html (newest first).
+
+  Any PDF or image goes in ../assets/ with a descriptive lowercase filename.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NOTE_TITLE — Matías Bonfanti</title>
+  <meta name="description" content="NOTE_SUMMARY">
+  <meta name="author" content="Matías Bonfanti">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NOTE_TITLE">
+  <meta property="og:description" content="NOTE_SUMMARY">
+  <meta property="og:url" content="https://matibonfanti.github.io/mb/research/NOTE_SLUG.html">
+
+  <link rel="canonical" href="https://matibonfanti.github.io/mb/research/NOTE_SLUG.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDMNZYSR5D');
+  </script>
+</head>
+<body>
+  <a href="index.html" class="back-home">← back to research</a>
+
+  <header>
+    <h1>NOTE_TITLE</h1>
+    <p class="entry-meta">NOTE_DATE</p>
+    <p class="description">NOTE_SUMMARY</p>
+  </header>
+
+  <article>
+    <p>
+      First paragraph. State the claim early — what you think is true and what
+      would have to happen for you to be wrong.
+    </p>
+
+    <h2>A section heading</h2>
+    <p>
+      Body text. Link sources inline like
+      <a href="https://example.com" target="_blank" rel="noopener">this</a>.
+    </p>
+
+    <!-- PDF or chart:
+    <p><a href="../assets/some-file.pdf">Download the full note (PDF)</a></p>
+    <p><img src="../assets/some-chart.png" alt="Describe the chart" style="max-width:100%"></p>
+    -->
+  </article>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Matías Bonfanti</p>
+    <p><a href="index.html">← back to research</a> · <a href="../index.html">home</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

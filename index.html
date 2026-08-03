@@ -1,51 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'G-ZDMNZYSR5D');
-</script>
-  
+  <title>Matías Bonfanti</title>
+  <meta name="description" content="Matías Bonfanti — economics graduate from Bocconi, multi-asset and quant research. Notes on macro, rates and markets.">
+  <meta name="author" content="Matías Bonfanti">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Matías Bonfanti">
+  <meta property="og:description" content="Economics graduate from Bocconi, multi-asset and quant research. Notes on macro, rates and markets.">
+  <meta property="og:url" content="https://matibonfanti.github.io/mb/">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="canonical" href="https://matibonfanti.github.io/mb/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matías Bonfanti</title>
   <link rel="stylesheet" href="styles.css">
- 
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDMNZYSR5D');
+  </script>
 </head>
 <body>
   <header>
-    <h1>Matias Bonfanti</h1>
-    <p class="description">I'm an undergraduate economics student at Bocconi University in Milan. I have a passion for financial markets, investing, and trying to make sense of global macro. From Buenos Aires, Argentina. </p>
+    <h1>Matías Bonfanti</h1>
+    <p class="description">
+      Economics graduate from Bocconi University, most recently in multi-asset and
+      quantitative research at Pictet Asset Management in Milan. Starting a Master's
+      in Management at ESCP London in September 2026. From Buenos Aires, Argentina.
+    </p>
+    <p class="description">
+      I work on macro, rates and asset allocation — and on the question of how
+      markets price things that are hard to measure.
+    </p>
   </header>
 
-  <section class="writing">
-    <h2>sections</h2>
-    <ul>
-      <li><a href="recs.html">read recommendations</a></li>
-      <li><a href="think.html">stuff i think about</a></li>
-      <li><a href="work.html">what i’m working on</a></li>
-      <li><a href="likes.html">things i like</a></li>
+  <nav class="site">
+    <a href="index.html" aria-current="page">home</a>
+    <a href="research/index.html">research</a>
+    <a href="work.html">working on</a>
+    <a href="think.html">thinking</a>
+    <a href="recs.html">reading</a>
+    <a href="likes.html">likes</a>
+  </nav>
+
+  <section>
+    <h2>research</h2>
+    <p class="description">
+      Short notes on macro and markets. I publish them here as I finish them —
+      see <a href="research/index.html">all notes</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>working on</h2>
+    <p class="description">
+      Projects and code, including my undergraduate thesis on non-verbal cues in
+      FOMC press conferences — <a href="work.html">what I'm working on</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>elsewhere</h2>
+    <ul class="plain">
+      <li><a href="https://github.com/matibonfanti" target="_blank" rel="noopener">github.com/matibonfanti</a></li>
+      <li><a href="mailto:matibonfanti@gmail.com">matibonfanti@gmail.com</a></li>
     </ul>
   </section>
-  
-  <section class="contact">
-    
-    <p><br>
-      This page is a work in progress, I'll keep updating it. </p>
-    <p>Feel free to reach out at <a href="mailto:matibonfanti@gmail.com">matibonfanti@gmail.com</a></p>
-  </section>
-  
+
   <footer>
-    <p>&copy; <span id="year"></span></p>
+    <p>&copy; <span id="year"></span> Matías Bonfanti</p>
   </footer>
 
   <script>

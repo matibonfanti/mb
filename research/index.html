@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research — Matías Bonfanti</title>
+  <meta name="description" content="Short research notes on macro, rates and markets by Matías Bonfanti.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Research — Matías Bonfanti">
+  <meta property="og:description" content="Short research notes on macro, rates and markets.">
+  <meta property="og:url" content="https://matibonfanti.github.io/mb/research/">
+
+  <link rel="canonical" href="https://matibonfanti.github.io/mb/research/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDMNZYSR5D');
+  </script>
+</head>
+<body>
+  <a href="../index.html" class="back-home">← back to home</a>
+
+  <header>
+    <h1>research</h1>
+    <p class="description">
+      Short notes on macro, rates and markets. Written for myself first, published
+      when they hold up.
+    </p>
+  </header>
+
+  <nav class="site">
+    <a href="../index.html">home</a>
+    <a href="index.html" aria-current="page">research</a>
+    <a href="../work.html">working on</a>
+    <a href="../think.html">thinking</a>
+    <a href="../recs.html">reading</a>
+    <a href="../likes.html">likes</a>
+  </nav>
+
+  <section>
+    <!--
+      TO ADD A NOTE:
+      1. cp _template.html your-note-slug.html   (lowercase, hyphens, no spaces)
+      2. Fill in the title, date and body inside that file.
+      3. Copy the <li> block below, uncomment it, and point it at your file.
+      Newest note goes at the top.
+    -->
+
+    <!--
+    <ul class="entries">
+      <li>
+        <a class="entry-title" href="your-note-slug.html">Title of the note</a>
+        <span class="entry-meta">DD Month YYYY</span>
+        <p class="entry-summary">
+          One or two sentences on what the note argues and why it matters.
+        </p>
+      </li>
+    </ul>
+    -->
+
+    <div class="empty">
+      <p>Nothing published here yet.</p>
+      <p>
+        In progress: a note on the Argentine central bank, and one on
+        "moneyness"-adjusted money supply following Miran's <em>A Return to
+        Monetarism?</em>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Matías Bonfanti</p>
+    <p><a href="../index.html">← back to home</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

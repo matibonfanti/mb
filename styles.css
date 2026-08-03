@@ -1,71 +1,188 @@
-/* Basic styling */
-body {
-  font-family: "Fira Code", monospace;
-  color: #333;
-  background-color: #fefefe;
-  margin: 0;
-  padding: 2rem;
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
+/* ---------------------------------------------------------------
+   matibonfanti.github.io/mb
+   Single stylesheet for every page. Keep it small and readable.
+   --------------------------------------------------------------- */
+
+:root {
+  --bg: #fefefe;
+  --fg: #333;
+  --muted: #555;
+  --faint: #888;
+  --rule: #e4e4e4;
+  --link: #007acc;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181a;
+    --fg: #d8d8d6;
+    --muted: #a8a8a4;
+    --faint: #7d7d79;
+    --rule: #2c2f32;
+    --link: #5cb3f0;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--fg);
+  background-color: var(--bg);
+  margin: auto;
+  padding: 2rem 1.25rem 4rem;
+  max-width: 700px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ---------- headings ---------- */
 
 h1 {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
   text-align: left;
-  margin: 0;
+  margin: 0 0 0.25rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 h3 {
-  font-size: 1rem; /* same size as .description */
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 700;
   text-decoration: underline;
-  margin-top: 1rem;
-  color: #333;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--fg);
 }
-
 
 .description {
   font-size: 1rem;
-  color: #555;
+  color: var(--muted);
   margin-top: 0.5rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* Sections */
-.writing h2, .contact h2 {
-  font-size: 1.3rem;
-  margin-top: 1.5rem;
+/* ---------- nav ---------- */
+
+nav.site {
+  margin: 1.5rem 0 0;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
 }
 
-.writing ul, .contact ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.writing li, .contact li {
-  margin-bottom: 0.8rem;
-}
-
-.writing strong {
-  font-weight: bold;
-}
-
-/* Links */
-a {
-  color: #007acc;
-  text-decoration: none;
-}
-
-a:hover {
+nav.site a[aria-current="page"] {
+  color: var(--fg);
+  font-weight: 600;
   text-decoration: underline;
 }
 
-/* Footer */
+.back-home {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- sections ---------- */
+
+section { margin-bottom: 1rem; }
+
+section p { margin: 0 0 1rem; }
+
+/* ---------- lists ---------- */
+
+ul { padding-left: 1.2rem; }
+
+ul.plain {
+  list-style: none;
+  padding-left: 0;
+}
+
+li { margin-bottom: 0.8rem; }
+
+/* ---------- entry index (research listing) ---------- */
+
+ul.entries {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.entries li {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+ul.entries li:last-child { border-bottom: none; }
+
+.entry-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.entry-meta {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--faint);
+  margin-top: 0.15rem;
+}
+
+.entry-summary {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ---------- empty state ---------- */
+
+.empty {
+  border: 1px dashed var(--rule);
+  padding: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.empty p:last-child { margin-bottom: 0; }
+
+/* ---------- links ---------- */
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+/* ---------- footer ---------- */
+
 footer {
   text-align: left;
-  margin-top: 2rem;
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
   font-size: 0.8rem;
-  color: #888;
+  color: var(--faint);
+}
+
+footer a { color: var(--faint); text-decoration: underline; }
+
+footer p { margin: 0.3rem 0; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 480px) {
+  body { padding: 1.5rem 1rem 3rem; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.15rem; }
 }
