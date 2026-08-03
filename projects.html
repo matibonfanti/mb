@@ -31,8 +31,8 @@
 </head>
 <body>
   <div class="topbar">
-    <button id="theme-toggle" type="button">dark</button>
     <a href="index.html" class="back-home">← Back to Home</a>
+    <button id="theme-toggle" type="button">dark</button>
   </div>
 
   <header>
@@ -47,48 +47,32 @@
   </nav>
 
   <section>
-    <h2>undergrad thesis</h2>
-    <p>
-      Central bank announcements usually carry little surprises in terms of policy, but we listen to them to update our internal outlooks on what we think future decisions are going to be. As humans listening to other humans, we not only pay attention to the content of their words (ie a “hawkish” or a “dovish” speech) but to *how* those words are delivered. Like in any conversation, we subconsciously interpret vocal cues—tone, pacing, nervousness, stuttering, fidgeting and other emotional markers.
-    </p>
-    <p>
-      But we tend to be extremely biased when evaluating these things, easily swayed by charisma, reputation or appearance.
-    </p>
-    <p>
-      What if you could train a model to quantify emotional expressions of central bankers in announcements and see how these variables affect markets? Can subtle vocal shifts signal underlying sentiment and influence asset prices?
-    </p>
-    <p>
-      To investigate this, I’m building a dataset of audio tracks of FOMC announcements and using open source models like <a href="https://huggingface.co/emotion2vec/emotion2vec_plus_large" target="_blank">Emotion2vec</a> to recognize emotion vectors and look for correlations to market reactions.
-    </p>
-    <p>
-      Code: <a href="https://github.com/matibonfanti/fomc-thesis" target="_blank" rel="noopener">matibonfanti/fomc-thesis</a>. I'll upload the write-up here once its finished.
-    </p>
-  </section>
-
-  <section>
-    <h2>research notes</h2>
-
     <!--
-      TO ADD A NOTE:
-      1. cp notes/_template.html notes/your-note-slug.html   (lowercase, hyphens, no spaces)
+      TO ADD A PROJECT:
+      1. cp projects/_template.html projects/your-slug.html
       2. Fill in the title, date and body inside that file.
-      3. Uncomment the <ul class="entries"> block below and point it at your file.
-      Newest note goes at the top. PDFs and images go in assets/.
+      3. Add an <li> at the TOP of the list below (reverse chronological).
+      PDFs and images go in assets/.
     -->
-
-    <!--
     <ul class="entries">
       <li>
-        <a class="entry-title" href="notes/your-note-slug.html">Title of the note</a>
-        <span class="entry-meta">DD Month YYYY</span>
-        <p class="entry-summary">One or two sentences on what the note argues.</p>
+        <a class="entry-title" href="projects/llm-bottleneck-memory.html">The Great LLM Bottleneck and Memory</a>
+        <span class="entry-meta">January 2026</span>
+        <p class="entry-summary">
+          Why the transformer context window, not raw model intelligence, is the binding
+          constraint on AI's commercial usefulness — and what that implies for the
+          semiconductor memory trade.
+        </p>
+      </li>
+      <li>
+        <a class="entry-title" href="projects/fomc-thesis.html">Beyond Words: Market Reactions to Emotional and Non-Verbal Cues in FOMC Communications</a>
+        <span class="entry-meta">September 2025 · undergraduate thesis, Bocconi University</span>
+        <p class="entry-summary">
+          Measuring the emotional delivery of FOMC press conferences with a multimodal
+          model, and testing it against high-frequency futures reactions.
+        </p>
       </li>
     </ul>
-    -->
-
-    <div class="empty">
-      <p>Nothing published here yet.</p>
-    </div>
   </section>
 
   <footer>

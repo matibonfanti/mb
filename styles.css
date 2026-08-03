@@ -94,13 +94,9 @@ nav.site a[aria-current="page"] {
   margin-bottom: 1.5rem;
 }
 
-.topbar .back-home {
-  margin-bottom: 0;
-  order: 1;
-}
+.topbar .back-home { margin-bottom: 0; }
 
 #theme-toggle {
-  order: 2;
   margin-left: auto;
   font-family: inherit;
   font-size: 0.85rem;

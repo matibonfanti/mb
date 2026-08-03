@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Great LLM Bottleneck and Memory — Matías Bonfanti</title>
+  <meta name="author" content="Matías Bonfanti">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Great LLM Bottleneck and Memory">
+  <meta property="og:url" content="https://matibonfanti.github.io/mb/projects/llm-bottleneck-memory.html">
+
+  <link rel="canonical" href="https://matibonfanti.github.io/mb/projects/llm-bottleneck-memory.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../theme.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDMNZYSR5D');
+  </script>
+</head>
+<body>
+  <div class="topbar">
+    <a href="../projects.html" class="back-home">← Back to Projects</a>
+    <button id="theme-toggle" type="button">dark</button>
+  </div>
+
+  <header>
+    <h1>The Great LLM Bottleneck and Memory</h1>
+    <p class="entry-meta">January 2026</p>
+  </header>
+
+  <nav class="site">
+    <a href="../index.html">home</a>
+    <a href="../projects.html">projects</a>
+    <a href="../recs.html">reading list</a>
+  </nav>
+
+  <article>
+    <p>
+      A note arguing that the binding constraint on AI's commercial usefulness is not
+      raw model intelligence but effective context: the transformer's attention
+      mechanism scales quadratically with sequence length and stores every token at
+      full resolution, so it cannot compress the way a human reader does. More chips
+      and more high-bandwidth memory do not remove this constraint, and agents and
+      retrieval work around it rather than solving it. The piece sets out what that
+      implies for the semiconductor memory trade under three architecture scenarios.
+    </p>
+
+    <!-- BODY GOES HERE — see chat before publishing the full text. -->
+  </article>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Matias Bonfanti</p>
+    <p><a href="../projects.html">← Back to Projects</a> · <a href="../index.html">home</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
