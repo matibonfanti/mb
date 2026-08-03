@@ -12,15 +12,14 @@
   --link: #007acc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #16181a;
-    --fg: #d8d8d6;
-    --muted: #a8a8a4;
-    --faint: #7d7d79;
-    --rule: #2c2f32;
-    --link: #5cb3f0;
-  }
+/* Dark is opt-in via the toggle only — it does not follow the OS setting. */
+:root[data-theme="dark"] {
+  --bg: #16181a;
+  --fg: #d8d8d6;
+  --muted: #a8a8a4;
+  --faint: #7d7d79;
+  --rule: #2c2f32;
+  --link: #5cb3f0;
 }
 
 * { box-sizing: border-box; }
@@ -85,6 +84,25 @@ nav.site a[aria-current="page"] {
   color: var(--fg);
   font-weight: 600;
   text-decoration: underline;
+}
+
+/* theme toggle sits at the far right of the nav */
+#theme-toggle {
+  margin-left: auto;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--faint);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+#theme-toggle:hover {
+  color: var(--fg);
+  border-color: var(--faint);
 }
 
 .back-home {

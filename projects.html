@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Projects — Matías Bonfanti</title>
+  <meta name="author" content="Matías Bonfanti">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects — Matías Bonfanti">
+  <meta property="og:url" content="https://matibonfanti.github.io/mb/projects.html">
+
+  <link rel="canonical" href="https://matibonfanti.github.io/mb/projects.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDMNZYSR5D');
+  </script>
+</head>
+<body>
+  <a href="index.html" class="back-home">← Back to Home</a>
+
+  <header>
+    <h1>projects</h1>
+    <p class="description"></p>
+  </header>
+
+  <nav class="site">
+    <a href="index.html">home</a>
+    <a href="projects.html" aria-current="page">projects</a>
+    <a href="recs.html">reading list</a>
+    <button id="theme-toggle" type="button">dark</button>
+  </nav>
+
+  <section>
+    <h2>undergrad thesis</h2>
+    <p>
+      Central bank announcements usually carry little surprises in terms of policy, but we listen to them to update our internal outlooks on what we think future decisions are going to be. As humans listening to other humans, we not only pay attention to the content of their words (ie a “hawkish” or a “dovish” speech) but to *how* those words are delivered. Like in any conversation, we subconsciously interpret vocal cues—tone, pacing, nervousness, stuttering, fidgeting and other emotional markers.
+    </p>
+    <p>
+      But we tend to be extremely biased when evaluating these things, easily swayed by charisma, reputation or appearance.
+    </p>
+    <p>
+      What if you could train a model to quantify emotional expressions of central bankers in announcements and see how these variables affect markets? Can subtle vocal shifts signal underlying sentiment and influence asset prices?
+    </p>
+    <p>
+      To investigate this, I’m building a dataset of audio tracks of FOMC announcements and using open source models like <a href="https://huggingface.co/emotion2vec/emotion2vec_plus_large" target="_blank">Emotion2vec</a> to recognize emotion vectors and look for correlations to market reactions.
+    </p>
+    <p>
+      Code: <a href="https://github.com/matibonfanti/fomc-thesis" target="_blank" rel="noopener">matibonfanti/fomc-thesis</a>. I'll upload the write-up here once its finished.
+    </p>
+  </section>
+
+  <section>
+    <h2>research notes</h2>
+
+    <!--
+      TO ADD A NOTE:
+      1. cp notes/_template.html notes/your-note-slug.html   (lowercase, hyphens, no spaces)
+      2. Fill in the title, date and body inside that file.
+      3. Uncomment the <ul class="entries"> block below and point it at your file.
+      Newest note goes at the top. PDFs and images go in assets/.
+    -->
+
+    <!--
+    <ul class="entries">
+      <li>
+        <a class="entry-title" href="notes/your-note-slug.html">Title of the note</a>
+        <span class="entry-meta">DD Month YYYY</span>
+        <p class="entry-summary">One or two sentences on what the note argues.</p>
+      </li>
+    </ul>
+    -->
+
+    <div class="empty">
+      <p>Nothing published here yet.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Matias Bonfanti</p>
+    <p><a href="index.html">← Back to Home</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

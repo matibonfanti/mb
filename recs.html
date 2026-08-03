@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <title>Read recommendations — Matías Bonfanti</title>
-  <meta name="description" content="Writers, papers and books that shaped how I think about markets, economics and technology.">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Read recommendations — Matías Bonfanti">
-  <meta property="og:description" content="Writers, papers and books that shaped how I think about markets, economics and technology.">
-  <meta property="og:url" content="https://matibonfanti.github.io/mb/recs.html">
-
-  <link rel="canonical" href="https://matibonfanti.github.io/mb/recs.html">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
-
+  gtag('config', 'G-ZDMNZYSR5D');
+    </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading list — Matías Bonfanti</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZDMNZYSR5D');
-  </script>
+
 </head>
 <body>
-  <a href="index.html" class="back-home">← back to home</a>
-
+  <a href="index.html" class="back-home">← Back to Home</a>
+  
   <header>
     <h1>read recommendations</h1>
     <p class="description">writings i think were influential in shaping how i think</p>
@@ -39,124 +31,75 @@
 
   <nav class="site">
     <a href="index.html">home</a>
-    <a href="research/index.html">research</a>
-    <a href="work.html">working on</a>
-    <a href="think.html">thinking</a>
-    <a href="recs.html" aria-current="page">reading</a>
-    <a href="likes.html">likes</a>
+    <a href="projects.html">projects</a>
+    <a href="recs.html" aria-current="page">reading list</a>
+    <button id="theme-toggle" type="button">dark</button>
   </nav>
 
-  <section>
+  <section class="recommendations">
     <h2>people and outlets</h2>
     <p class="description">people and outlets i follow that post regularly</p>
     <ul>
-      <li>
-        <a href="https://gwern.net/index/" target="_blank" rel="noopener">Gwern</a>
-        — writes about ai, statistics, psychology; great repository of interesting papers.
+      <li><a href="https://gwern.net/index/" target="_blank">Gwern </a> - writes about ai, statistics, psychology, great repository of interesting papers. 
+      
+      <li><a href="https://www.lynalden.com/newsletter-archives/" target="_blank">Lyn Alden</a> - the US, investing.
+         <a href="https://x.com/LynAldenContact" target="_blank">@LynAldenContact</a>
       </li>
-      <li>
-        <a href="https://www.lynalden.com/newsletter-archives/" target="_blank" rel="noopener">Lyn Alden</a>
-        — the US, investing.
-        <a href="https://x.com/LynAldenContact" target="_blank" rel="noopener">@LynAldenContact</a>
+       <li><a href=" https://www.exunoplures.hu/a-decade-on-money/" target="_blank">Zlotan Pozsar</a> - shadow banking, liquidity flows, central banking, and shifting reserve currency regiemes.</li>
+      <li><a href="https://wolfstreet.com/" target="_blank">Wolf Street</a> - financial market news, monetary economics.</li>
+      <li><a href="https://www.goldmansachs.com/insights/top-of-mind" target="_blank">Goldman Sachs Top of Mind</a> - in depth reports on current global issues.</li>
       </li>
-      <li>
-        <a href="https://www.exunoplures.hu/a-decade-on-money/" target="_blank" rel="noopener">Zoltan Pozsar</a>
-        — shadow banking, liquidity flows, central banking, and shifting reserve currency regimes.
+        <li><a href="https://marginalrevolution.com" target="_blank">Tyler Cowen's Blog "Marginal Revolution"</a> and <a href="https://conversationswithtyler.com" target="_blank">Podcast "Conversations with Tyler"</a></li>
       </li>
-      <li>
-        <a href="https://wolfstreet.com/" target="_blank" rel="noopener">Wolf Street</a>
-        — financial market news, monetary economics.
-      </li>
-      <li>
-        <a href="https://www.goldmansachs.com/insights/top-of-mind" target="_blank" rel="noopener">Goldman Sachs Top of Mind</a>
-        — in depth reports on current global issues.
-      </li>
-      <li>
-        Tyler Cowen's blog
-        <a href="https://marginalrevolution.com" target="_blank" rel="noopener">Marginal Revolution</a>
-        and podcast
-        <a href="https://conversationswithtyler.com" target="_blank" rel="noopener">Conversations with Tyler</a>.
-      </li>
-      <li>
-        <a href="https://themacrocompass.substack.com/" target="_blank" rel="noopener">The Macro Compass</a>
-        by Alfonso Peccatiello — substack on macro trends.
-      </li>
-      <li>
-        <a href="https://jkempenergy.com/" target="_blank" rel="noopener">John Kemp Energy News</a>
-        — energy markets research.
-      </li>
+      
+        <li><a href="https://themacrocompass.substack.com/" target="_blank">The Macro Compass</a> by Alfonso Peccatiello - substack on macro trends.</li>
+      <li><a href="https://jkempenergy.com/" target="_blank">John Kemp Energy News</a> - energy markets research.</li>
+     
+  
     </ul>
   </section>
 
-  <section>
+  <section class="recommendations">
     <h2>interesting reads</h2>
     <p class="description">papers, books, essays i find interesting, insightful and relevant</p>
-
+    
     <h3>tech and ai</h3>
     <ul>
-      <li>
-        <a href="https://situational-awareness.ai" target="_blank" rel="noopener">Leopold Aschenbrenner's "Situational Awareness: the Decade Ahead"</a>
-        — an ex-openai employee's perspective on the future outlook of ai. very much disagree with his risk assessment and his strategic geopolitical suggestions, but it's a (somewhat technical) deep dive by a very smart insider.
-      </li>
-      <li>
-        <a href="https://www.youtube.com/watch?v=wjZofJX0v4M" target="_blank" rel="noopener">"How LLMs work" by 3Blue1Brown</a>
-        — a visual intro to understanding transformer models.
-      </li>
-      <li>
-        <a href="https://gwern.net/doc/economics/automation/2024-feigenbaum.pdf" target="_blank" rel="noopener">Answering the Call of Automation: How the Labor Market Adjusted to Mechanizing Telephone Operation</a>
-        — labor market adaptation in response to automation. complementing this:
-        <a href="https://aidantr.github.io/files/AI_innovation.pdf" target="_blank" rel="noopener">Artificial Intelligence, Scientific Discovery, and Product Innovation</a>
-        — shows ai is already having very significant productivity and labour saving impacts, and highlights interesting skill-based disparities.
-      </li>
-      <li>
-        <a href="https://www.arxiv.org/pdf/2412.10270" target="_blank" rel="noopener">"Cultural Evolution of Cooperation among LLM Agents" by Google DeepMind</a>
-        — a super interesting paper on how "societies" of LLM models develop cooperative behaviors over generations in a Donor Game. Claude 3.5 wins!
-      </li>
+      <p><li><a href="https://situational-awareness.ai" target="_blank">Leopold Aschenbrenner's "Situational Awareness: the Decade Ahead"</a> - an ex-openai employee's perspective on the future outlook of ai. very much disagree with his risk assessment and his strategic geopolitical suggestions but it's a (somewhat technical) deep dive by a very smart insider.</li></p>
+      <p><li><a href="https://www.youtube.com/watch?v=wjZofJX0v4M&list=LL&index=19" target="_blank">"How LLMs work" by 3Blue 1Brown</a> - a visual intro to understanding transformer models.</li></p>
+    <p><li><a href="https://gwern.net/doc/economics/automation/2024-feigenbaum.pdf" target="_blank">Answering the Call of Automation: How the Labor Market Adjusted to Mechanizing Telephone Operation</a> - labor market adaptation in response to automation. complimenting this: <a href="https://aidantr.github.io/files/AI_innovation.pdf" target="_blank">Artificial Intelligence, Scientific Discovery, and Product Innovation</a> - proves ai is already having very significant productivity and labour saving impacts highlights interesting skill-based disparities.</li></p>
+<p><li><a href="https://www.arxiv.org/pdf/2412.10270" target="_blank">"Cultural Evolution of Cooperation among LLM Agents" by Google Deep Mind</a> - a super interesting paper on how "societies" of LLM models develop cooperative behaviors over generations in a Donor Game. Claude 3.5 wins!</li></p>
+        
+        
+
+        
     </ul>
 
     <h3>economics and markets</h3>
     <ul>
-      <li>
-        Mandelbrot's "The (mis)Behaviour of Markets: a Fractal View of Risk, Ruin, and Reward"
-        — challenges the assumptions of gaussian distributions and efficient markets. applies fractal geometry to markets, shows that they exhibit self-similarity. for more technical stuff see
-        <a href="https://web.williams.edu/Mathematics/sjmiller/public_html/341Fa09/econ/Mandelbroit_VariationCertainSpeculativePrices.pdf" target="_blank" rel="noopener">"The Variation of Certain Speculative Prices" (1963)</a>
-        and
-        <a href="https://www.msandri.it/complex/multifractals/mandel1.pdf" target="_blank" rel="noopener">"A Multifractal Model of Asset Returns" (1997)</a>.
-      </li>
-      <li>
-        <a href="https://cdn.mises.org/Mystery%20of%20Banking_2.pdf" target="_blank" rel="noopener">Rothbard's "The Mystery of Banking"</a>
-        — a detailed and historically accurate explanation (and critique) of how the banking system works.
-      </li>
-      <li>
-        <a href="https://www.journals.uchicago.edu/doi/epdf/10.1086/710532" target="_blank" rel="noopener">"Political Cycles and Stock Returns"</a>
-        — develops a model linking political cycles and stock returns to time-varying risk aversion, showing that higher stock market returns under Democratic presidents are driven by high risk aversion during their elections, rather than by their policies.
-      </li>
-      <li>
-        <a href="https://marginalrevolution.com/marginalrevolution/2019/05/the-baumol-effect.html" target="_blank" rel="noopener">the Baumol effect</a>
-        — how productivity gains in one sector raise costs in less productive sectors.
-      </li>
+      <p><li><a href="https://libgen.is/book/index.php?md5=B83EDFB656D738D8603071DBD5195DBD" target="_blank">Mandelbrot's "The (mis)Behaviour of Markets: a Fractal View of Risk, Ruin, and Reward"</a> - challenges the assumptions of gaussian distributions and efficient markets. applies fractal geometry to markets, shows that they exhibit self-similarity. for more technical stuff see <a href="https://web.williams.edu/Mathematics/sjmiller/public_html/341Fa09/econ/Mandelbroit_VariationCertainSpeculativePrices.pdf" target="_blank">"The Variation of Certain Speculative Prices" (1963)</a> and <a href="https://www.msandri.it/complex/multifractals/mandel1.pdf" target="_blank">"A Multifractal Model of Asset Returns" (1997)</a>.</li></p>
+      <p><li><a href="https://cdn.mises.org/Mystery%20of%20Banking_2.pdf" target="_blank">Rothbard's "The Mystery of Banking"</a> - a detailed and historically accurate explanation (and critique) of how the banking system works.</li></p>
+      <p><li><a href="https://www.journals.uchicago.edu/doi/epdf/10.1086/710532" target="_blank">"Political Cycles and Stock Returns"</a> - develops a model linking political cycles and stock returns to time-varying risk aversion, showing that higher stock market returns under Democratic presidents are driven by high risk aversion during their elections, rather than their policies.</li></p>
+    <p><li><a href="https://marginalrevolution.com/marginalrevolution/2019/05/the-baumol-effect.html" target="_blank">the Baumol effect</a> - how productivity gains in one sector raise costs in less productive sectors.</li></p>
+    
     </ul>
-
+      
     <h3>investing</h3>
     <ul>
-      <li>
-        <a href="https://www.goodreads.com/book/show/746936.Margin_of_Safety" target="_blank" rel="noopener">Seth Klarman's "Margin of Safety"</a>
-        — value investing with a focus on exploiting market inefficiencies, maintaining a contrarian mindset, and prioritizing preservation of capital.
-      </li>
-      <li>
-        <a href="https://arxiv.org/pdf/2210.16113" target="_blank" rel="noopener">"Intelligence and Global Bias in the Stock Market"</a>
-        — uses a log-normal model to reveal how biases, driven by managerial discretion and accounting practices, systematically distort stock prices from their intrinsic values. identifies stable proxies for true fundamentals.
-      </li>
-      <li>
-        <a href="http://csinvesting.org/wp-content/uploads/2015/01/The-Superinvestors-of-Graham-and-Doddsville-by-Warren-Buffett.pdf" target="_blank" rel="noopener">Warren Buffett's "The Superinvestors of Graham-and-Doddsville"</a>
-        — arguing against the efficient market hypothesis by demonstrating that disciplined investing in undervalued securities consistently outperforms the market.
-      </li>
+    <p><li><a href="https://www.goodreads.com/book/show/746936.Margin_of_Safety" target="_blank">Seth Klarman's "Margin of Safety"</a> - value investing with a focus on exploiting market inefficiencies, maintaining a contrarian mindset, and prioritizing preservation of capital. (find on Libgen or emial me for a pdf)</li></p>    
+    <p><li><a href="https://arxiv.org/pdf/2210.16113" target="_blank">"Intelligence and Global Bias in the Stock Market"</a> - uses a log-normal model to reveal how biases, driven by managerial discretion and accounting practices, systematically distort stock prices from their intrinsic values. identifies stable proxies for true fundamentals.</li></p>    
+    <p><li><a href="http://csinvesting.org/wp-content/uploads/2015/01/The-Superinvestors-of-Graham-and-Doddsville-by-Warren-Buffett.pdf" target="_blank">Warren Buffett's "The Superinvestors of Graham-and-Doddsville"</a> - arguing against the efficient market hypothesis by demonstrating that disciplined investing in undervalued securities consistently outperforms the market.
+
+
+</li></p>        
+        
+    
     </ul>
   </section>
-
+  
   <footer>
-    <p>&copy; <span id="year"></span> Matías Bonfanti</p>
-    <p><a href="index.html">← back to home</a></p>
+    <p>&copy; <span id="year"></span> Matias Bonfanti</p>
+    <p><a href="index.html">← Back to Home</a></p>
   </footer>
 
   <script>
@@ -164,3 +107,5 @@
   </script>
 </body>
 </html>
+
+
