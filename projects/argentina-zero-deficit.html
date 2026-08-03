@@ -105,7 +105,7 @@
 
     <figure>
       <img src="../assets/argentina/3_annual_bridge_pctgdp.png" alt="Bridge from primary balance through reported net interest and capitalised interest to the reported and accrual-basis results, percent of GDP, for 2024, 2025 and the first half of 2026." loading="lazy" width="2039" height="1000" style="max-width:100%;height:auto">
-      <figcaption>Where the surplus goes. In 2025 capitalised interest (−8.9% of GDP) was larger than the primary balance and cash interest combined — 7.4× the interest actually paid in cash.</figcaption>
+      <figcaption>Where the primary surplus goes. In 2025 capitalised interest was almost 9% of GDP. The real accrual deficit number was -8.7% of GDP against a reported cash 0.2% surplus.</figcaption>
     </figure>
 
     <p>
@@ -140,11 +140,11 @@
     <h2>Sources, and where the number is hidden</h2>
 
     <p>
-      The accrual figure is not published anywhere. It is not that it is buried in an annex — it does not exist in the budget system at all. The OPC states in each monthly execution report that <em>"los registros de E.Sidif y Presupuesto Abierto no incluyen intereses de títulos públicos capitalizables"</em>: the two systems that record budget execution simply do not carry it. No amount of querying MECON's fiscal datasets will surface it, because it was never posted there.
+      The accrual figure is not published anywhere. The OPC states in each monthly execution report that "los registros de E.Sidif y Presupuesto Abierto no incluyen intereses de títulos públicos capitalizables".
     </p>
 
     <p>
-      Where it does appear is the debt records, which are a different reporting chain entirely — the Secretaría de Finanzas' register of public debt operations rather than the fiscal accounts. It surfaces there only because the monthly change in peso debt capital has to be reconciled, and that identity is
+      Where it does appear is the debt records, the Secretaría de Finanzas' register of public debt operations. It surfaces there only because the monthly change in peso debt capital has to be reconciled, and that identity is
     </p>
 
     <p>
@@ -152,24 +152,18 @@
     </p>
 
     <p>
-      Publishing that reconciliation is what forces the capitalisation term to be stated explicitly. It sits around page six of the OPC's "Operaciones de deuda pública" — not in the better-known "Análisis de la ejecución presupuestaria", which only footnotes the exclusion.
+      Around page six of the OPC's "Operaciones de deuda pública"
     </p>
 
     <p>
-      So the reconstruction is a matter of reading that line out of 28 consecutive monthly PDFs covering March 2024 to June 2026, and rebuilding the series by hand. Fiscal aggregates, nominal GDP and CPI come from the datos.gob.ar time-series API. The accrual result is then simply the reported cash result less capitalised interest for the same month.
+      Manually (Claude) had to read that line on each PDF of 28 consecutive monthly reports covering March 2024 to June 2026, and rebuilding the series. Fiscal aggregates, nominal GDP and CPI come from the datos.gob.ar time-series API. The accrual result is then simply the reported cash result less capitalised interest for the same month.
     </p>
 
     <p>
-      Four things will silently corrupt this if missed. Many of the OPC PDFs are image-based — every glyph a separate embedded image — so text extraction returns almost nothing and OCR is required, and which months need it varies. The units changed in January 2026 from <em>millones</em> to <em>MM</em> (miles de millones), a 1,000× error on every month afterwards if the unit word is assumed rather than parsed. Spanish number format uses "." for thousands and "," for decimals, so naive parsing of $10.916.227 yields 10.92. And the set of instruments included drifts across years, so the series is not constant-perimeter unless it is cut deliberately.
+      All of it is public: the 28 source PDFs, the extracted series, the scripts, the charts and a formula-driven workbook are at
+      <a href="https://github.com/matibonfanti/argentina-fiscal-accounting" target="_blank" rel="noopener">github.com/matibonfanti/argentina-fiscal-accounting</a>.
     </p>
 
-    <p>
-      Two checks. The identity closes tightly month by month — for June 2026, net capital cancellations of −$8,168bn, valuation adjustments of +$5,192bn and capitalisation of +$3,296bn sum to +$320bn against an observed stock change of +$319bn. And the reconstruction reproduces every independently published control total: 14.06tn against 14.1tn for 2024, 75.80tn against 75.8tn for 2025, 10.92tn for August 2025 alone, and −74.35tn against −74.3tn for the 2025 accrual result.
-    </p>
-
-    <p>
-      One denominator point matters for anyone replicating this: the INDEC quarterly GDP series is expressed at annual rates, not as quarterly flows, so rolling-year nominal GDP is the four-quarter <em>mean</em>, not the sum. Summing gives a figure roughly four times too large and every ratio four times too small.
-    </p>
   </article>
 
   <footer>
