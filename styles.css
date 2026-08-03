@@ -86,9 +86,17 @@ nav.site a[aria-current="page"] {
   text-decoration: underline;
 }
 
-/* theme toggle sits at the far right of the nav */
+/* theme toggle sits at the top left, above everything else */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.topbar .back-home { margin-bottom: 0; }
+
 #theme-toggle {
-  margin-left: auto;
   font-family: inherit;
   font-size: 0.85rem;
   color: var(--faint);
