@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A pseudo-monetarist experiment: plumbing reform at the Argentine central bank — Matías Bonfanti</title>
+  <meta name="author" content="Matías Bonfanti">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="A pseudo-monetarist experiment: plumbing reform at the Argentine central bank">
+  <meta property="og:description" content="In July 2025 the BCRA stopped announcing any monetary policy rate at all, delegating short-term interest rates to the market. What was actually done, instrument by instrument.">
+  <meta property="og:url" content="https://matibonfanti.github.io/mb/projects/argentina-pseudo-monetarist-experiment.html">
+
+  <link rel="canonical" href="https://matibonfanti.github.io/mb/projects/argentina-pseudo-monetarist-experiment.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=4">
+  <script src="../theme.js?v=4"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDMNZYSR5D');
+  </script>
+</head>
+<body>
+  <div class="topbar">
+    <a href="../projects.html" class="back-home">← Back to Projects</a>
+    <button id="theme-toggle" type="button">dark</button>
+  </div>
+
+  <header>
+    <h1>A pseudo-monetarist experiment: plumbing reform at the Argentine central bank</h1>
+    <p class="entry-meta">September 2026 · data through September 2026</p>
+  </header>
+
+  <nav class="site">
+    <a href="../index.html">home</a>
+    <a href="../projects.html">projects</a>
+    <a href="../recs.html">reading list</a>
+  </nav>
+
+  <article>
+    <p>
+      In July 2025, the Argentine central bank (BCRA) started a monetary experiment that is very unusual (in the sense that it is an intellectual position otherwise abandoned since the 80s), but that I find very interesting theoretically and technically.
+    </p>
+
+    <p>
+      Against the overwhelming consensus of monetary theory, the BCRA stopped announcing and enforcing any monetary policy rate at all, “delegating” short-term interest rates to be determined by the market endogenously. Since early 2026 though, the resulting volatility made the central bank walk back on a series of partial policies that make the implementation today somewhat impure.
+    </p>
+
+    <p>
+      Beyond Milei’s outsized influence on global politics, I think this experiment is interesting because at least some degree of attention to monetarism seems to be returning to academia (or rather the academics in charge). Starting with Warsh at the Fed, pushing back against decades of Fed orthodoxy that ignored money supply: "Money matters... It's not fashionable these days, but my view is that money has something important to do with monetary policy.”
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N1_us_money_and_inflation.png" alt="United States broad money growth and consumer price inflation year on year, 2015 to 2026. M2 growth peaks at 27 per cent in February 2021 and CPI inflation peaks about eighteen months later." loading="lazy" width="1500" height="914" style="max-width:100%;height:auto">
+      <figcaption>US M2 growth peaked at 27% y/y in February 2021; CPI peaked about eighteen months later.</figcaption>
+    </figure>
+
+    <p>
+      Here I will i) explain what was actually done at the BCRA, ii) have a discussion on why central banks set short term rates and some not-so mainstream models
+    </p>
+
+    <h2>1) Some background</h2>
+
+    <h3>a. The inherited mess</h3>
+
+    <p>
+      Three things defined the inheritance: i) a remunerated central bank liability compounding at the policy rate, ii) a contingent emission channel out of the BCRA’s control, iii) a reserve-requirement regime that was not effectively enforced.
+    </p>
+
+    <p>
+      The central bank was i) creating base money to pay interest (the policy rate) on its monthly and overnight liabilities, which raised inflation, which required a higher rate, which created more base money. This mechanism is described in Sargent &amp; Wallace (1981). The BCRA had also ii) written put and bid options to banks on Treasury bonds, i.e. an obligation to create pesos overnight to the extent exercised. And iii) effective cash reserves held at the central bank had fallen to 4% of deposits and had become an unbinding requirement (vs. a historical 12% average). The stock of central bank remunerated liabilities was equivalent to 280% of the monetary base and 11% of GDP in March 2024; and the outstanding put options were equivalent to 175% of the base and 35% of deposits.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N2_snowball.png" alt="Two panels. Left, BCRA remunerated liabilities as a share of the monetary base, peaking at 339 per cent in September 2023 and falling to zero by July 2024. Right, base money created purely to pay interest on them, rolling twelve months, peaking at 7 per cent of GDP a year in January 2024 and falling to zero." loading="lazy" width="2269" height="979" style="max-width:100%;height:auto">
+      <figcaption>The stock peaks at 339% of the monetary base. The interest on it was being financed by printing, at a peak run-rate of 7.0% of GDP a year.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N3_requirement_not_binding.png" alt="Bank peso balances at the BCRA as a share of total peso deposits, 2017 to 2026, falling to a trough of 3.7 per cent in October 2023 against a historical norm of 11 to 12 per cent, and recovering to the norm by 2026." loading="lazy" width="1526" height="879" style="max-width:100%;height:auto">
+      <figcaption>Cash actually held against deposits troughed at 3.7% in October 2023. Deductions, a zero requirement on money-market fund and caución deposits, and integration with public securities had hollowed out the rest.</figcaption>
+    </figure>
+
+    <h3>b. Phase 1 of the reform: cheapen the remunerated stock (Dec 2023)</h3>
+
+    <p>
+      The first structural reform was to shorten and cheapen the remunerated stock. Monthly stock was migrated to one day repos, and the policy rate was then cut to deeply negative real territory (-85% real in early 2024). Counterintuitively to those used to the developed world, this sharply lowered inflation, by lowering base money creation for interest repayment and slowing the compounding of central bank liabilities.
+    </p>
+
+    <p>
+      The exchange rate was set at a 2% crawling peg.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N4_inflating_away_the_stock.png" alt="Two stacked panels. Top, the real CPI-deflated value of the BCRA's remunerated liabilities, falling 67 per cent between November 2023 and June 2024. Bottom, the monthly mean policy rate deflated by annualised monthly CPI, reaching minus 79 per cent in December 2023." loading="lazy" width="1775" height="1181" style="max-width:100%;height:auto">
+      <figcaption>The stock fell 67% in real terms by the end of June 2024, before a peso of it was repaid. The series stops there, because the remainder was then transferred to the Treasury.</figcaption>
+    </figure>
+
+    <h3>c. Phase 2: relocate the remunerated liability (July 2024)</h3>
+
+    <p>
+      The BCRA moves the now smaller stock of remunerated liabilities to the Treasury. The LEFI was created, a Treasury bill transferable only between the BCRA and financial institutions, paying the BCRA’s policy rate, but -crucially- with daily capitalisation.
+    </p>
+
+    <p>
+      Effectively this became a sort of standing deposit facility with the BCRA buying and selling LEFIs from banks every day at the posted policy rate, with the interest being a Treasury – and not a central bank – obligation. But the interest is never actually paid in cash, just capitalized, exempt from the government’s deficit measure because it reports it on a cash basis. This is the mechanism explained on my <a href="argentina-zero-deficit.html">other note</a>.
+    </p>
+
+    <p>
+      The BCRA also began repurchasing the puts, removing the eliminating the potential sources of monetary emission not under the control of the monetary authority.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N5_liability_relocated.png" alt="Interest-bearing liabilities absorbing bank liquidity in trillions of pesos, coloured by who owed them: the BCRA until July 2024, then the Treasury through LEFI until July 2025, then nothing." loading="lazy" width="1525" height="950" style="max-width:100%;height:auto">
+      <figcaption>The block changes colour in July 2024 and disappears a year later. July 2024 did not eliminate the liability; it moved the issuer.</figcaption>
+    </figure>
+
+    <h3>d. Phase 3: swap an exchange-rate anchor for a money supply anchor and eliminating the policy rate (April to July 2025)</h3>
+
+    <p>
+      The crawling peg was replaced by a float between widening bands; capital controls were lifted for individuals. The announced anchor formally became the private transactional M2, controlled though the regulation of the banking system and management of reserve requirements. The idea was that once the FX bands widen enough, FX will stop being the binding commitment and the aggregate rule becomes the only one.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N10_fx_band.png" alt="The wholesale peso-dollar exchange rate against its floating band from April 2025 to September 2026. The band starts at 1000 to 1400 and widens; the rate reaches the ceiling in September 2025 and sits about 21 per cent below it by September 2026." loading="lazy" width="1575" height="959" style="max-width:100%;height:auto">
+      <figcaption>Band limits move ±1% a month to December 2025, then ±the T−2 CPI print. Reconstructed from the published rule and checked against the BCRA's 31 August 2026 print.</figcaption>
+    </figure>
+
+    <p>
+      Having a money supply target is a bit tricky. The aggregate the central bank controls directly, the monetary base, has a weak relationship with inflation. The aggregates that do track inflation, broad money measures like M2, depend not only on the central bank, but also on banks' lending decisions and on the public's portfolio choices, so “monetary” policy affects them indirectly.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N18_credit_expansion.png" alt="Real peso bank credit to the private sector, private deposits and private transactional M2, CPI-deflated and indexed to January 2024. Real credit reaches about 2.7 times its January 2024 level by 2026 while the money measures rise about 20 per cent." loading="lazy" width="1563" height="929" style="max-width:100%;height:auto">
+      <figcaption>Real bank credit is about 2.7× its January 2024 level. Credit creation is monetary expansion through the banking system, and it does not appear in the base.</figcaption>
+    </figure>
+
+    <p>
+      Private transactional M2 defined as payments money only. It is currency held by the public, peso cancellation cheques, and non-remunerated peso sight deposits of the private non-financial sector.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N7_what_is_targeted.png" alt="Two panels. Left, the composition of M3 in August 2026 in trillions of pesos, with a bracket marking currency plus non-remunerated private sight deposits as the targeted slice. Right, each monetary aggregate as a share of GDP since 2024." loading="lazy" width="1944" height="933" style="max-width:100%;height:auto">
+      <figcaption>The target is roughly a third of M3.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N14_target_decomposed.png" alt="Two panels. Left, private transactional M2 split into currency held by the public and non-remunerated private sight deposits as a share of GDP. Right, currency as a share of the target aggregate, around 40 per cent." loading="lazy" width="2185" height="979" style="max-width:100%;height:auto">
+      <figcaption>About 40% of the targeted aggregate is currency, which is demand-determined — the BCRA supplies whatever the public asks for at the window.</figcaption>
+    </figure>
+
+    <p>
+      So, in order to determine the target level of private transactional M2, the BCRA estimates money demand, and sets the supply target matching it. For example, the BCRA had estimated that the monetary base could remonetise by about 0.6pp of GDP during 2026, rising from 4.2% to 4.8% of GDP. While inflation exceeds international inflation, the BCRA keeps a contractionary (conservative) bias relative to the baseline money-demand path. In other words, it supplies slightly less than estimated demand.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N8_two_targets.png" alt="The monetary base and private transactional M2 as a share of rolling-year nominal GDP since 2024, with the BCRA's 2026 objectives annotated and its historical benchmark of a monetary base of 8 to 9 per cent of GDP shaded." loading="lazy" width="1525" height="930" style="max-width:100%;height:auto">
+      <figcaption>Private transactional M2 sits near 7% of GDP; the 4.2% to 4.8% path is the monetary base. The BCRA's own historical benchmark for monetisation is a base of 8–9% of GDP.</figcaption>
+    </figure>
+
+    <p>
+      Pesos are issued mainly through FX purchases. The BCRA sterilizes pesos created above demand but sells them to the market while demand evolves as expected. The tightening tools are reserve requirements and OMOs in LECAPs, which it does discretionally.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N16_where_pesos_come_from.png" alt="Cumulative contribution to the monetary base during 2026 as a per cent of the base on 1 January, split into FX purchases from the private sector, net Treasury operations, repos and other. Gross issuance from FX purchases reaches 47 per cent while the net change in the base is about 7 per cent." loading="lazy" width="1564" height="959" style="max-width:100%;height:auto">
+      <figcaption>Gross issuance from buying dollars is 47% of the opening base during 2026. Net base growth is 7%. The difference is drained back out, mostly through Treasury operations.</figcaption>
+    </figure>
+
+    <p>
+      The last step of the reform is formally eliminating the policy rate and all facilities and windows that offer automatic liquidity. LEFIs were swapped for publicly tradable capitalizing Treasury bonds (LECAPs), the LEFI window was closed, and the BCRA ceased to offer financial institutions liquidity windows at a predetermined rate. This was replaced by open market operations in LECAPs with banks at the rate determined by the secondary market.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/G1_corridor_dismantled.png" alt="Overnight peso rates in effective annual per cent from 2023 to 2026, showing the BCRA's standing-facility corridor, the announced policy rate ending on 10 July 2025, and the market overnight repo rate spiking afterwards." loading="lazy" width="1590" height="969" style="max-width:100%;height:auto">
+      <figcaption>The published policy-rate series ends on 10 July 2025. What is left is the black line.</figcaption>
+    </figure>
+
+    <h2>2) Electoral stress leading to partial reversal of the monetary experiment (August 2025)</h2>
+
+    <p>
+      Mid-term elections in October 2025 and a worse-worse-than-expected performance of Milei’s party in the province of Buenos Aires made money demand collapse: sudden dollarization of portfolios and individuals against the risk of Milei losing the midterms. The BCRA's estimate, reported in the IMF's 2026 Article IV, is that the shock cut money demand by 50% of private M2. This was when the peso reached the top of the FX band and Bessent intervened with a US$ 20bn swap.
+    </p>
+
+    <p>
+      The result of this electoral stress was the market-determined overnight rate peaking at 380% (vs. the last monetary policy rate before elimination being 36%.)
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N13_real_policy_rate.png" alt="The monthly mean overnight rate deflated by annualised monthly CPI from 2022 to 2026, shown as the announced policy rate until July 2025 and the market overnight rate after the policy rate was abolished." loading="lazy" width="1564" height="944" style="max-width:100%;height:auto">
+      <figcaption>Before July 2025 this is a rate the BCRA chose. After it, the same measurement of a rate the market produced.</figcaption>
+    </figure>
+
+    <p>
+      The issue is that given a very limited toolbox, the BCRA was unable to properly manage volatility against such a massive shock. It resorted to patches and fixes that supplement the simple reserve requirement lever and were ineffective, like reserve monthly averages, carryovers and clawbacks.
+    </p>
+
+    <p>
+      It also reintroduced a small and expensive lending facility, but priced off of the market rate, to avoid the end-of-day interest rate spikes.
+    </p>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N19_intermediation_spread.png" alt="The spread between the overdraft lending rate and the 30-day deposit rate in effective annual percentage points, 2024 to 2026, spiking above 65 points during the 2025 electoral episode and settling near 8 points." loading="lazy" width="1551" height="971" style="max-width:100%;height:auto">
+      <figcaption>The wedge between what a saver earns and what a borrower pays. Part of it is the cost of holding sterile reserves against sight deposits, which earn no interest.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../assets/argentina-monetary-plumbing/N17_inflation_and_phases.png" alt="Monthly Argentine consumer price inflation from 2023 to August 2026 with the four phases of the monetary programme shaded, falling from 25.5 per cent in December 2023 to 1.66 per cent in August 2026." loading="lazy" width="1578" height="929" style="max-width:100%;height:auto">
+      <figcaption>25.5% in December 2023 to 1.66% in August 2026, across the four phases of the programme.</figcaption>
+    </figure>
+  </article>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Matías Bonfanti</p>
+    <p><a href="../projects.html">← back to projects</a> · <a href="../index.html">home</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
