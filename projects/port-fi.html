@@ -50,17 +50,19 @@
 
   <article>
     <p>
-      Views on bonds are stated in yields, but outcomes happen in returns, and the translation depends on
-      carry, roll-down, what the forward curve already prices, and when the move happens. PORT·FI makes that
-      explicit: pick a position, drag your expected US Treasury curve (or set a Fed path or an inflation
-      view), and see the return over time split into carry, roll-down, curve change and your view versus
-      the forwards. It also works backwards: what the market has to do to break even, beat cash or hit a
-      target return.
+      Bond math is sometimes not particularly intuitive, particularly when one is trying to understand what is the implication of a view on a position.
     </p>
 
     <p>
-      It runs on daily Treasury and TIPS data and prices everything by full cash-flow repricing, with a
-      Python engine that runs in the browser.
+      With this free PORT-like tool for fixed income, you can play around with how different market scenarios you might have in mind actually impact positions. For example you might have in mind a particular policy path differing from what the market prices, say the Fed delivering one hike where three are priced, and see what that does to a 10-year Treasury or a 2s10s steepener, and how much of it the forwards already price in. Or you might expect term premium to rebuild and the long end to sell off, and check how much carry and roll-down cushion that move before you lose money.
+    </p>
+
+    <p>
+      It breaks down returns into split into carry, roll-down, curve change and what is already priced in. You can also work backwards from a return objective (i.e. what would need to happen to reach a return).
+    </p>
+
+    <p>
+      It also uses TIPS and breakeven inflation data, so you can play around with your expected inflation path and see how it moves TIPS, breakeven trades and nominal bonds.
     </p>
 
     <p>
