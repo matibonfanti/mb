@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Treasury basis trade — Matías Bonfanti</title>
+  <meta name="description" content="Why asset managers' demand for synthetic duration sustains the Treasury cash-futures basis, why the leveraged trade on the other side is a latent risk, and a proposal for the Treasury to supply that duration directly.">
+  <meta name="author" content="Matías Bonfanti">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Treasury basis trade">
+  <meta property="og:description" content="Why asset managers' demand for synthetic duration sustains the Treasury cash-futures basis, why the leveraged trade on the other side is a latent risk, and a proposal for the Treasury to supply that duration directly.">
+  <meta property="og:url" content="https://matibonfanti.github.io/mb/projects/treasury-basis-trade.html">
+
+  <link rel="canonical" href="https://matibonfanti.github.io/mb/projects/treasury-basis-trade.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace'>mb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=4">
+  <script src="../theme.js?v=4"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDMNZYSR5D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDMNZYSR5D');
+  </script>
+</head>
+<body>
+  <div class="topbar">
+    <a href="../projects.html" class="back-home">← Back to Projects</a>
+    <button id="theme-toggle" type="button">dark</button>
+  </div>
+
+  <header>
+    <h1>The Treasury basis trade</h1>
+    <p class="entry-meta">October 2026</p>
+  </header>
+
+  <nav class="site">
+    <a href="../index.html">home</a>
+    <a href="../projects.html">projects</a>
+    <a href="../recs.html">reading list</a>
+  </nav>
+
+  <article>
+    <p>
+      In this note, I’ll give i) an overview of the basis trade, ii) an explanation of why such a sustained basis arises, iii) why it poses risks to financial stability, and iv) a proposal to “end” or “endogenize” the basis trade.
+    </p>
+
+    <p>
+      There is a structural misalignment in the US Treasury market between how duration is issued and how institutional demand for it is serviced (the framing is <a href="https://treasury-dsa.github.io/2026-09-09_The-Trillion-Dollar-Friction_DSA-Framework.pdf" target="_blank" rel="noopener">Steven T. Williams’</a>).
+    </p>
+
+    <p>
+      Institutional investors and asset managers (AMs: bond funds, pension funds, insurers) need a certain amount of interest rate (duration) exposure. Over the past decade they have shown a strong appetite for duration exposure via US Treasury futures. This demand is around $1.1tn in underlying net notional value (<a href="https://publicreporting.cftc.gov/stories/s/r4w3-av2u" target="_blank" rel="noopener">CFTC Traders in Financial Futures</a>, October 2026).
+    </p>
+
+    <p>
+      AMs prefer to meet this duration need synthetically (through derivatives) because they want their cash to go into higher-yielding assets (mortgage bonds, credit, etc.).
+    </p>
+
+    <p>
+      Such a large one-sided demand has pushed futures above their fair value implied by cash-and-carry. This gap is the “basis”. AMs largely don’t mind the spread they themselves generate, because it is tiny next to the extra yield they earn on mortgages and credit (the <a href="https://home.treasury.gov/system/files/221/CombinedChargesforArchivesQ12024.pdf" target="_blank" rel="noopener">January 2024 TBAC presentation</a> puts the cost of replicating Treasury exposure with futures at about 0.45% a year over 2018–23, which most spread assets easily cover).
+    </p>
+
+    <p>
+      This mispricing has attracted arbitrageurs looking to profit from the spread. Because banks’ leverage regulations have been more restrictive since the financial crisis, hedge funds have stepped in to provide (sell or rent out) their balance sheet space for this capital-intensive trade.
+    </p>
+
+    <p>
+      A hedge fund: i) sells the future, ii) buys the “cheapest-to-deliver” cash Treasury (the cheapest bond that can be delivered into that future), and iii) borrows almost the full price of the bond overnight in repo, pledging the bond itself as collateral, often with no haircut. At expiry, it delivers the bond into the future and the two prices converge. The profit is the amount by which the futures price exceeds fair value, minus the repo cost.
+    </p>
+
+    <p>
+      The trade is DV01-neutral (if yields rise, the fund loses on the bond but gains the same on the short future). The bet is that the spread converges (and, crucially, that the fund can keep the position funded until it does).
+    </p>
+
+    <p>
+      Because the spread is thin (roughly 20–30bp a year), hedge funds leverage it heavily, typically 20–40x and sometimes more (<a href="https://treasury-dsa.github.io/2026-08-30-mbs_convexity_and_the_treasury_basis_nexus.pdf" target="_blank" rel="noopener">Williams</a>). <a href="https://www.federalreserve.gov/econres/notes/feds-notes/hedge-fund-treasury-exposures-repo-and-margining-20230908.html" target="_blank" rel="noopener">The Fed found</a> that 74% of hedge funds’ Treasury repo borrowing was done at zero or negative haircuts at the end of 2022.
+    </p>
+
+    <figure>
+      <img src="../assets/treasury-basis-trade/F5_leverage_arithmetic.png" alt="Leverage needed to reach a target gross return of 8, 12 or 15 per cent, plotted against the basis net of funding from 5 to 50 basis points. At a 20 to 30 basis point basis, a 12 per cent return needs 40 to 60 times leverage, above the 24.7 times average leverage of relative-value hedge funds in Form PF." loading="lazy" width="2325" height="1455" style="max-width:100%;height:auto">
+      <figcaption>At a 20–30bp spread, a 12% return needs 40–60x leverage. Fund-wide leverage in Form PF is lower because it averages across everything a fund holds.</figcaption>
+    </figure>
+
+    <p>
+      The Federal Reserve and other authorities have been watching this trade closely since March 2020, given the size it has grown to and because it has amplified Treasury market stress in the past. The Fed estimates the trade at about $830bn in September 2025, roughly double its early-2020 peak (<a href="https://www.federalreserve.gov/econres/notes/feds-notes/decomposing-hedge-funds-u-s-treasury-exposures-20260622.html" target="_blank" rel="noopener">Monin, 2026</a>).
+    </p>
+
+    <p>
+      Additionally, it is only a small group of pods at multi-managers and a few fixed-income relative value hedge funds worldwide that take on positions as large as AMs’ entire futures exposure. The 50 largest hedge funds account for about 90% of hedge funds’ Treasury exposure.
+    </p>
+
+    <figure>
+      <img src="../assets/treasury-basis-trade/F9_hedge_fund_treasury_uses.png" alt="Horizontal bars of estimated uses of large hedge funds' 2.4 trillion dollars of long Treasury exposure in September 2025: cash-futures basis 830 billion (35 per cent), maturity-matched trades 395 billion, steepeners 375 billion, swap-spread arbitrage 305 billion, unencumbered cash 245 billion, flatteners 175 billion, long-only 70 billion." loading="lazy" width="2325" height="1455" style="max-width:100%;height:auto">
+      <figcaption>The basis trade is 35% of hedge funds’ long Treasury book. Together with swap-spread arbitrage, nearly half sits in highly levered arbitrage.</figcaption>
+    </figure>
+
+    <h2>Why do AMs have such appetite for duration?</h2>
+
+    <p>
+      There is no obvious consensus. Asset managers can demand long futures positions for the same reasons other investors do:
+    </p>
+
+    <ol type="i">
+      <li>Active rate views (long duration, steepeners)</li>
+      <li>Duration matching (using synthetic duration to offset lower-duration assets and match benchmarks)</li>
+      <li>Liquidity management</li>
+    </ol>
+
+    <p>
+      The prevailing narrative is the following: managers have a duration target that they can’t easily move (set either by a benchmark or by their liabilities), and they want to put their cash into assets yielding more than Treasuries (mainly MBS). But these assets have shorter duration than the target, so the gap must be filled with something that adds duration without using cash: Treasury futures. This explains why the demand is persistent and price-insensitive (<a href="https://www.federalreserve.gov/econres/feds/reaching-for-duration-and-leverage-in-the-treasury-market.htm" target="_blank" rel="noopener">Barth, Kahn, Monin &amp; Sokolinskiy, 2024</a>; <a href="https://home.treasury.gov/system/files/221/CombinedChargesforArchivesQ12024.pdf" target="_blank" rel="noopener">TBAC, 2024</a>).
+    </p>
+
+    <p>
+      One interesting point that Steven T. Williams (@stwill on X) makes in his paper <a href="https://treasury-dsa.github.io/2026-08-30-mbs_convexity_and_the_treasury_basis_nexus.pdf" target="_blank" rel="noopener">“MBS Convexity &amp; the Treasury Basis Nexus”</a> is that the negative convexity of MBS adds an overlooked risk to the trade, coming from the futures leg rather than the cash leg.
+    </p>
+
+    <h2>Why the basis trade is a latent risk</h2>
+
+    <p>
+      The duration of a Treasury bond doesn’t change much with changes in rates; it is broadly a function of its time to maturity. Mortgages are different: the homeowner owns a call option, because borrowers can repay (or refinance) at any time without penalty. The MBS holder is thus short this option. When rates fall, homeowners refinance, and duration shortens. When rates rise, borrowers prepay and refinance more slowly than expected, and duration lengthens. This is negative convexity: duration increases when rates increase and decreases when rates decrease.
+    </p>
+
+    <figure>
+      <img src="../assets/treasury-basis-trade/F3_duration_in_a_rally.png" alt="Change in duration for a 100 basis point fall in yields: a 10-year Treasury gains 0.14 years, the agency MBS index loses 0.38 years, the MBS held by futures-using bond funds lose 0.94 years, and the most sensitive MBS coupons lose about 3 years." loading="lazy" width="2325" height="1455" style="max-width:100%;height:auto">
+      <figcaption>Futures-using bond funds hold recent high-coupon mortgages, whose duration falls about 2.5 times as fast as the benchmark’s. Estimates from Williams, based on mid-2024 positions.</figcaption>
+    </figure>
+
+    <p>
+      Bond funds that hold MBS need fewer Treasury futures as rates rise, because the lengthening MBS duration on its own gets them closer to their duration target. Rising rates are therefore the benign direction for this channel: the basis tightens and hedge funds make mark-to-market profits for performing their price discovery role. Rates have risen a lot since 2022, and the trade still grew, because funds kept adding mortgages and credit.
+    </p>
+
+    <p>
+      But when rates decline, shortening MBS duration forces AMs to increase their long Treasury futures positions. This puts pressure on the basis to widen, generating losses for hedge funds. Williams estimates that asset managers would need about $1.4bn of extra futures for every basis point fall in yields, or about $139bn for a 100bp rally (using mid-2024 positions). This is the risk scenario: a sharp drop in rates can trigger an explosion of the basis, forcing hedge funds to exit the leveraged trade suddenly.
+    </p>
+
+    <figure>
+      <img src="../assets/treasury-basis-trade/F11_refi_trigger.png" alt="Two panels. Top, the 30-year fixed mortgage rate from 2018 to October 2026, rising from about 3 per cent in 2021 to around 7 per cent, dipping to 5.98 per cent in February 2026 and back at 7.40 per cent, with a shaded band at 5.5 to 6.5 per cent marking the rough refinancing threshold for recent high-coupon pools. Bottom, annual US refinancing originations: rate-and-term refinancing of 2.10 trillion dollars in 2020 and 1.77 trillion in 2021, falling to 179 billion in 2023 and recovering to 500 billion in 2025." loading="lazy" width="2325" height="1455" style="max-width:100%;height:auto">
+      <figcaption>Rate-driven refinancing fell more than 90% after 2021. It only picked up when mortgage rates approached 6%, the rough threshold for the high-coupon pools bond funds bought. At 7.4% today, the trigger is some way off.</figcaption>
+    </figure>
+
+    <p>
+      This is especially dangerous because a sharp rally in rates usually comes with a financial shock or recession, as growth and inflation expectations fall. The basis then gets hit from both legs: AMs must buy futures to restore their duration, and investors sell cash Treasuries in a dash for cash.
+    </p>
+
+    <figure>
+      <img src="../assets/treasury-basis-trade/F4_two_triggers.png" alt="Stacked bars of pressure on the cash-futures basis in billions of dollars. March 2020, 2 to 13 March: foreign official sales 105, US mutual funds 46, and the hedge-fund basis unwind 54 on the cash leg and 54 on the futures leg, totalling 259. Estimated MBS re-hedging after a 100 basis point rally: 139, split equally between mutual funds and separate accounts. Estimated maximum re-hedging: 180 to 200." loading="lazy" width="2325" height="1455" style="max-width:100%;height:auto">
+      <figcaption>The re-hedging flow from a 100bp rally would be about half the size of the flows that broke the basis in early March 2020, and up to three quarters at its maximum. In a recession-style rally, it would come on top of a dash for cash.</figcaption>
+    </figure>
+
+    <p>
+      Hedge funds then face mark-to-market losses. These are paper losses: at delivery the futures and the bond converge, and the losses reverse. But funds may be forced out before that happens. The two legs are margined separately, so a hedged fund can get margin calls on both. Rising volatility also tightens their risk limits, and multi-manager pods face drawdown limits. These can force funds to cut positions regardless of funding conditions. Unwinding means selling bonds and buying back futures, which widens the basis further. The result is a self-reinforcing spiral.
+    </p>
+
+    <figure>
+      <img src="../assets/treasury-basis-trade/F6_stress_windows.png" alt="Two-week change in net Treasury futures positions. March 3 to 17, 2020: asset managers minus 3 billion, leveraged funds plus 62 billion (covering shorts), dealers minus 57 billion. April 1 to 15, 2025: asset managers plus 84 billion, leveraged funds minus 37 billion (adding shorts), dealers minus 71 billion." loading="lazy" width="2325" height="1455" style="max-width:100%;height:auto">
+      <figcaption>In March 2020 hedge funds unwound and dealers absorbed it. In April 2025, when yields rose instead of falling, the basis trade held; the forced selling came from swap-spread trades.</figcaption>
+    </figure>
+
+    <h2>Regulatory proposals on the basis trade</h2>
+
+    <p>
+      Many proposals have been made to try to make the basis trade “safer” (<a href="https://www.brookings.edu/articles/treasury-market-dysfunction-and-the-role-of-the-central-bank/" target="_blank" rel="noopener">Kashyap, Stein, Wallen &amp; Younger, 2025</a> review them), but most simply encumber hedge funds’ capacity to act as arbitrageurs or introduce friction. For example, establishing minimum repo haircuts would artificially limit leverage.
+    </p>
+
+    <p>
+      But the reality is that there is an element of moral hazard in the trade: the Fed has made clear that it will not let the Treasury market stop functioning. Hedge funds collect a small, steady premium (the basis) and pay out only in a liquidity crisis, when the basis blows out. In 2020, the Fed intervened, buying about $1.6tn of Treasuries in three months, only after many funds had been forced out and realized losses, but losses were limited.
+    </p>
+
+    <p>
+      The most interesting proposal is Steven T. Williams’ (<a href="https://treasury-dsa.github.io/2026-09-09_The-Trillion-Dollar-Friction_DSA-Framework.pdf" target="_blank" rel="noopener">“The Trillion-Dollar Friction”</a>; summarised in the <a href="https://www.ft.com/content/55a506e8-8cba-4d8e-bf1a-e5d3e6682677" target="_blank" rel="noopener">FT</a>). He makes the point that the Treasury, the natural seller of duration, should be the one providing the synthetic duration. Synthetic duration is economically a forward: a price fixed today for a Treasury delivered later. The Treasury is the only issuer of that bond, so it is the natural seller of that forward, much as a commodity producer sells its output forward.
+    </p>
+
+    <p>
+      Under his proposal (Deferred Settlement Auctions), an asset manager would buy a bond at the regular auction at a price fixed today, but pay and take delivery later, and roll the position monthly. Economically this is the same as a long futures position: it is unfunded, so the manager’s cash stays in mortgages and credit. The price is the cost of carry plus a small premium set by the Treasury, instead of the basis paid through futures. With a cheaper alternative available, asset managers would not pay much more than the DSA premium in the futures market. Static demand would migrate to the Treasury, and the basis would be anchored near the DSA premium. Hedge funds would face less demand and a thinner spread, so the leveraged repo-funded book would shrink to the residual tactical demand that stays in futures.
+    </p>
+
+    <p>
+      In effect, the Treasury takes the hedge fund’s place in the chain, and the income that went to hedge funds as the basis now goes to the Treasury. Because it holds no inventory and faces no margin calls, the Treasury cannot be forced out of the position, which removes the fragility of the current arrangement.
+    </p>
+
+    <figure>
+      <img src="../assets/treasury-basis-trade/F8_dsa_schematic.png" alt="Schematic in two rows. Today: the asset manager buys futures on the exchange; a hedge fund sells the futures, buys the cash bond from the Treasury and funds it with overnight repo from a dealer, which gets the cash from money-market funds. With deferred settlement auctions: the asset manager buys from the Treasury at auction and settles later, and money-market funds buy the bills that fund the delay; the futures market is left with tactical demand only." loading="lazy" width="2325" height="1455" style="max-width:100%;height:auto">
+      <figcaption>Under the proposal, money-market funds lend to the Treasury through bills instead of to hedge funds through repo.</figcaption>
+    </figure>
+
+    <h2>Sources</h2>
+
+    <ul>
+      <li>Williams, S. T. (2026), <a href="https://treasury-dsa.github.io/2026-09-09_The-Trillion-Dollar-Friction_DSA-Framework.pdf" target="_blank" rel="noopener">“The Trillion-Dollar Friction”</a>, and the <a href="https://www.ft.com/content/55a506e8-8cba-4d8e-bf1a-e5d3e6682677" target="_blank" rel="noopener">FT Alphaville column</a>, 9 September 2026</li>
+      <li>Williams, S. T. (2024, circulated 2026), <a href="https://treasury-dsa.github.io/2026-08-30-mbs_convexity_and_the_treasury_basis_nexus.pdf" target="_blank" rel="noopener">“MBS Convexity &amp; the Treasury Basis Nexus”</a></li>
+      <li>Kashyap, Stein, Wallen &amp; Younger (2025), <a href="https://www.brookings.edu/articles/treasury-market-dysfunction-and-the-role-of-the-central-bank/" target="_blank" rel="noopener">“Treasury Market Dysfunction and the Role of the Central Bank”</a>, Brookings Papers on Economic Activity</li>
+      <li>Monin (2026), <a href="https://www.federalreserve.gov/econres/notes/feds-notes/decomposing-hedge-funds-u-s-treasury-exposures-20260622.html" target="_blank" rel="noopener">“Decomposing Hedge Funds’ U.S. Treasury Exposures”</a>, FEDS Notes</li>
+      <li>Glicoes, Iorio, Monin &amp; Petrasek (2023), <a href="https://www.federalreserve.gov/econres/notes/feds-notes/hedge-fund-treasury-exposures-repo-and-margining-20230908.html" target="_blank" rel="noopener">“Hedge Fund Treasury Exposures, Repo, and Margining”</a>, FEDS Notes</li>
+      <li>Barth, Kahn, Monin &amp; Sokolinskiy (2024), <a href="https://www.federalreserve.gov/econres/feds/reaching-for-duration-and-leverage-in-the-treasury-market.htm" target="_blank" rel="noopener">“Reaching for Duration and Leverage in the Treasury Market”</a>, FEDS Working Paper</li>
+      <li>Treasury Borrowing Advisory Committee (2024), <a href="https://home.treasury.gov/system/files/221/CombinedChargesforArchivesQ12024.pdf" target="_blank" rel="noopener">“Discussion of Treasury Futures Positions Across Different Investor Types”</a>, January 2024 charge</li>
+      <li>Data: <a href="https://publicreporting.cftc.gov/stories/s/r4w3-av2u" target="_blank" rel="noopener">CFTC Traders in Financial Futures</a>; <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener">Freddie Mac mortgage rates via FRED</a>; <a href="https://ffiec.cfpb.gov/data-browser/" target="_blank" rel="noopener">CFPB HMDA data browser</a>; SEC Form PF via the <a href="https://www.financialresearch.gov/hedge-fund-monitor/" target="_blank" rel="noopener">OFR Hedge Fund Monitor</a></li>
+    </ul>
+  </article>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Matías Bonfanti</p>
+    <p><a href="../projects.html">← Back to Projects</a> · <a href="../index.html">home</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
